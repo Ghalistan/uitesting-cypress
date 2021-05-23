@@ -1,0 +1,6 @@
+{
+    "baseUrl": "http://uitestingplayground.com/",
+    "viewportHeight": 1080,
+    "viewportWidth": 1920,
+    "ignoreTestFiles": "**/examples/*.spec.js"
+}
