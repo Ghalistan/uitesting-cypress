@@ -61,8 +61,33 @@ describe("UI Testing Playground Tests", () => {
     })
 
     describe("Hiding scrollbars page", () => {
-        it.only("Should open scrollbars page", () => {
+        it("Should open scrollbars page", () => {
             landingPage.openScrollbars().clickButton()
+        })
+    })
+
+    describe("Dynamic table page", () => {
+        it("Should open dynamic table page", () => {
+            landingPage
+                .openDynamicTable()
+                .compareChromeCPU()
+        })
+    })
+
+    describe("Verify text page", () => {
+        it("Should open verify text page", () => {
+            landingPage
+                .openVerifyText()
+                .findText("Welcome")
+        })
+    })
+
+    describe("Progress bar page", () => {
+        it("Should open progress bar page", () => {
+            landingPage
+                .openProgressBar()
+                .startProgressBar()
+                .stopProgressBar()
         })
     })
 })

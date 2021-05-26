@@ -3,10 +3,13 @@ import classAttributePage from "./classAttributePage"
 import ClickPage from "./clickPage"
 import ClientSideDelayPage from "./clientSideDelay"
 import DynamicIDPage from "./dynamicIdPage"
+import DynamicTablePage from "./dynamicTablePage"
 import HiddenLayer from "./hiddenLayerPage"
 import LoadDelayPage from "./loadDelayPage"
+import ProgressBarPage from "./progressBarPage"
 import ScrollbarsPage from "./scrollbarsPage"
 import TextInputPage from "./textInputPage"
+import VerifyTextPage from "./verifyTextPage"
 
 class LandingPage {
     visit(): void {
@@ -52,22 +55,40 @@ class LandingPage {
         return new ClientSideDelayPage()
     }
 
-    openClickPage() {
+    openClickPage(): ClickPage {
         cy.get(`a[href="/click"]`).click()
 
         return new ClickPage()
     }
 
-    openTextInput() {
+    openTextInput(): TextInputPage {
         cy.get(`a[href="/textinput"]`).click()
 
         return new TextInputPage()
     }
 
-    openScrollbars() {
+    openScrollbars(): ScrollbarsPage {
         cy.get(`a[href="/scrollbars"]`).click()
 
         return new ScrollbarsPage()
+    }
+
+    openDynamicTable(): DynamicTablePage {
+        cy.get(`a[href="/dynamictable"]`).click()
+
+        return new DynamicTablePage()
+    }
+
+    openVerifyText(): VerifyTextPage {
+        cy.get(`a[href="/verifytext"]`).click()
+
+        return new VerifyTextPage()
+    }
+
+    openProgressBar() {
+        cy.get(`a[href="/progressbar"]`).click()
+
+        return new ProgressBarPage()
     }
 }
 
