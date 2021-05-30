@@ -1,5 +1,6 @@
 import LandingPage from "../support/pageObject/landingPage"
 import * as faker from "faker"
+import SampleAppPage from "../support/pageObject/sampleAppPage"
 
 const landingPage = new LandingPage()
 
@@ -88,6 +89,38 @@ describe("UI Testing Playground Tests", () => {
                 .openProgressBar()
                 .startProgressBar()
                 .stopProgressBar()
+        })
+    })
+
+    describe("Visibility page", () => {
+        it("Should open visibility page", () => {
+            landingPage
+                .openVisibilityPage()
+                .clickHideButton()
+        })
+    })
+
+    describe("Sample app page", () => {
+        let sampleApp: SampleAppPage
+
+        beforeEach(function () {
+            sampleApp = landingPage.openSampleApp()
+        })
+
+        it("Successfull Login", () => {
+            sampleApp
+                .inputName(faker.name.findName())
+                .inputPassword('pwd')
+                .clickLogin()
+                .shouldSuccessfullyLogin()
+                .clickLogout()
+                .shouldLoggedOutSuccessfully()
+        })
+
+        it("Should give invalid cred notice", () => {
+            sampleApp
+                .clickLogin()
+                .shouldReturnErrorNotice()
         })
     })
 })

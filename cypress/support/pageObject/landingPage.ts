@@ -7,9 +7,11 @@ import DynamicTablePage from "./dynamicTablePage"
 import HiddenLayer from "./hiddenLayerPage"
 import LoadDelayPage from "./loadDelayPage"
 import ProgressBarPage from "./progressBarPage"
+import SampleAppPage from "./sampleAppPage"
 import ScrollbarsPage from "./scrollbarsPage"
 import TextInputPage from "./textInputPage"
 import VerifyTextPage from "./verifyTextPage"
+import VisibilityPage from "./visibilityPage"
 
 class LandingPage {
     visit(): void {
@@ -85,10 +87,22 @@ class LandingPage {
         return new VerifyTextPage()
     }
 
-    openProgressBar() {
+    openProgressBar(): ProgressBarPage {
         cy.get(`a[href="/progressbar"]`).click()
 
         return new ProgressBarPage()
+    }
+
+    openVisibilityPage(): VisibilityPage {
+        cy.get(`a[href="/visibility"]`).click()
+
+        return new VisibilityPage()
+    }
+
+    openSampleApp(): SampleAppPage {
+        cy.get(`a[href="/sampleapp"]`).click()
+
+        return new SampleAppPage()
     }
 }
 
