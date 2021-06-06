@@ -5,18 +5,18 @@ jobs:
         runs-on: ubuntu-latest
         container: cypress/browsers:node14.16.0-chrome89-ff86
         steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+            - uses: actions/checkout@v2
             - name: Chrome Test
               uses: cypress-io/github-action@v2
               with:
                   browser: chrome
     Firefox-Test:
         runs-on: ubuntu-latest
-        container: cypress/browsers:node14.16.0-chrome89-ff86
+        container:
+            image: cypress/browsers:node14.16.0-chrome89-ff86
+            options: --user 1001
         steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+            - uses: actions/checkout@v2
             - name: Firefox Test
               uses: cypress-io/github-action@v2
               with:
@@ -24,9 +24,8 @@ jobs:
     Edge-Test:
         runs-on: windows-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: Firefox Test
+            - uses: actions/checkout@v2
+            - name: Edge Test
               uses: cypress-io/github-action@v2
               with:
                   browser: edge
