@@ -6,6 +6,8 @@ import DynamicIDPage from "./dynamicIdPage"
 import DynamicTablePage from "./dynamicTablePage"
 import HiddenLayer from "./hiddenLayerPage"
 import LoadDelayPage from "./loadDelayPage"
+import MouseOverPage from "./mouseOverPage"
+import NBSPPage from "./NBSPPage"
 import ProgressBarPage from "./progressBarPage"
 import SampleAppPage from "./sampleAppPage"
 import ScrollbarsPage from "./scrollbarsPage"
@@ -16,6 +18,10 @@ import VisibilityPage from "./visibilityPage"
 class LandingPage {
     visit(): void {
         cy.visit("/")
+    }
+
+    private clickLink(link: string): Cypress.Chainable {
+        return cy.get(`a[href="${link}"]`).click()
     }
 
     openDynamicID(): DynamicIDPage {
@@ -103,6 +109,18 @@ class LandingPage {
         cy.get(`a[href="/sampleapp"]`).click()
 
         return new SampleAppPage()
+    }
+
+    openMouseOver(): MouseOverPage {
+        cy.get(`a[href="/mouseover"]`).click()
+
+        return new MouseOverPage()
+    }
+
+    openNbsp(): NBSPPage {
+        cy.get(`a[href="/nbsp"]`).click()
+
+        return new NBSPPage()
     }
 }
 

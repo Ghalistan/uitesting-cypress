@@ -69,34 +69,25 @@ describe("UI Testing Playground Tests", () => {
 
     describe("Dynamic table page", () => {
         it("Should open dynamic table page", () => {
-            landingPage
-                .openDynamicTable()
-                .compareChromeCPU()
+            landingPage.openDynamicTable().compareChromeCPU()
         })
     })
 
     describe("Verify text page", () => {
         it("Should open verify text page", () => {
-            landingPage
-                .openVerifyText()
-                .findText("Welcome")
+            landingPage.openVerifyText().findText("Welcome")
         })
     })
 
     describe("Progress bar page", () => {
         it("Should open progress bar page", () => {
-            landingPage
-                .openProgressBar()
-                .startProgressBar()
-                .stopProgressBar()
+            landingPage.openProgressBar().startProgressBar().stopProgressBar()
         })
     })
 
     describe("Visibility page", () => {
         it("Should open visibility page", () => {
-            landingPage
-                .openVisibilityPage()
-                .clickHideButton()
+            landingPage.openVisibilityPage().clickHideButton()
         })
     })
 
@@ -110,7 +101,7 @@ describe("UI Testing Playground Tests", () => {
         it("Successfull Login", () => {
             sampleApp
                 .inputName(faker.name.findName())
-                .inputPassword('pwd')
+                .inputPassword("pwd")
                 .clickLogin()
                 .shouldSuccessfullyLogin()
                 .clickLogout()
@@ -118,9 +109,23 @@ describe("UI Testing Playground Tests", () => {
         })
 
         it("Should give invalid cred notice", () => {
-            sampleApp
-                .clickLogin()
-                .shouldReturnErrorNotice()
+            sampleApp.clickLogin().shouldReturnErrorNotice()
+        })
+    })
+
+    describe("Mouse Over Page", () => {
+        it("Should open mouse over page", () => {
+            landingPage.openMouseOver().clickOnText().clickOnText()
+        })
+    })
+
+    describe("Non-Breaking Space Page", () => {
+        it("Should open nbsp page using cypress identifier", () => {
+            landingPage.openNbsp().clickButton()
+        })
+
+        it("Should open nbsp page using xpath", () => {
+            landingPage.openNbsp().clickButtonXpath()
         })
     })
 })

@@ -1,3 +1,3 @@
 # Todo
 
-- [ ] Assertion for console output
+-   [ ] Assertion for console output

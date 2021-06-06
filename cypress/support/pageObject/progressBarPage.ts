@@ -10,10 +10,11 @@ class ProgressBarPage {
     }
 
     stopProgressBar() {
-        cy.get(`div[id="progressBar"][aria-valuenow="75"]`, { timeout: 30000 })
-            .then(() => {
-                cy.get(`button[id="stopButton"]`).click()
-            })
+        cy.get(`div[id="progressBar"][aria-valuenow="75"]`, {
+            timeout: 30000,
+        }).then(() => {
+            cy.get(`button[id="stopButton"]`).click()
+        })
     }
 }
 

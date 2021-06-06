@@ -35,10 +35,8 @@ class SampleAppPage {
     }
 
     clickLogout() {
-        cy.get(`button[id="login"]`)
-            .should('have.text', "Log Out")
-            .click()
-        
+        cy.get(`button[id="login"]`).should("have.text", "Log Out").click()
+
         return this
     }
 
