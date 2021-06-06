@@ -1,13 +1,33 @@
 name: End-to-end Tests
 on: [push]
 jobs:
-    Run-Tests:
+    Chrome-Test:
         runs-on: ubuntu-latest
         container: cypress/browsers:node14.16.0-chrome89-ff86
         steps:
             - name: Checkout
               uses: actions/checkout@v2
-            - name: Cypress Tests
+            - name: Chrome Test
               uses: cypress-io/github-action@v2
               with:
                   browser: chrome
+    Firefox-Test:
+        runs-on: ubuntu-latest
+        container: cypress/browsers:node14.16.0-chrome89-ff86
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Firefox Test
+              uses: cypress-io/github-action@v2
+              with:
+                  browser: firefox
+    Edge-Test:
+        runs-on: windows-latest
+        container: cypress/browsers:node14.10.1-edge88
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Firefox Test
+              uses: cypress-io/github-action@v2
+              with:
+                  browser: edge
